@@ -10,6 +10,8 @@ This project showcases a multi-sensory AI that integrates image description and 
 3. **Text Generation**: Combines the image description and transcribed speech to generate a contextual response using GPT-3.5.
 
 The project highlights how multi-modal AI systems can enhance interactivity and provide intelligent, context-aware responses.
+Read my full blog article at: [https://medium.com/@yassine.elyacoub/expanding-beyond-text-a-practical-guide-to-building-multi-modal-llm-solutions-426a6f0f94a8]
+Follow my blogs at [https://bit.l](https://bit.ly/yassine-blogs]
 
 ---
 
