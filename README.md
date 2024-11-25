@@ -10,8 +10,8 @@ This project showcases a multi-sensory AI that integrates image description and 
 3. **Text Generation**: Combines the image description and transcribed speech to generate a contextual response using GPT-3.5.
 
 The project highlights how multi-modal AI systems can enhance interactivity and provide intelligent, context-aware responses.
-Read my full blog article at: [https://medium.com/@yassine.elyacoub/expanding-beyond-text-a-practical-guide-to-building-multi-modal-llm-solutions-426a6f0f94a8]
-Follow my blogs at [https://bit.l](https://bit.ly/yassine-blogs]
+Learn more at Medum blog article[Expanding Beyond Text: A Practical Guide to Building Multi-Modal LLM Solutions](https://medium.com/@yassine.elyacoub/expanding-beyond-text-a-practical-guide-to-building-multi-modal-llm-solutions-426a6f0f94a8)
+Follow my blogs at [Medium LLM-related blogs](https://bit.ly/yassine-blogs]
 
 ---
 
@@ -32,74 +32,38 @@ Follow my blogs at [https://bit.l](https://bit.ly/yassine-blogs]
 ---
 
 ## Prerequisites
-Ensure you have Python installed and the following libraries:
-- `transformers`
-- `Pillow`
-- `speechrecognition`
-
-Install the dependencies:
-```bash
-pip install transformers pillow speechrecognition
+- Python 3.7 or higher
+- Install dependencies:
+  ```bash
+  pip install transformers pillow speechrecognition flask
 
 How to Run
 
-    Clone or download this repository:
+    Clone the repository:
 
 git clone https://github.com/your-repo/multi-modal-ai.git
 cd multi-modal-ai
 
-Ensure all the files are in the same directory.
+Start the Flask app:
 
-Replace example_image.jpg in main.py with the path to your image file.
+    python app.py
 
-Run the main script:
-
-    python main.py
+    Open your browser and go to http://127.0.0.1:5000.
 
 Usage
-Step 1: Image Description
 
-    Provide an image file (e.g., example_image.jpg).
-    The application generates a description of the image content.
-
-Step 2: Speech Input
-
-    Speak into the microphone when prompted.
-    The application transcribes the spoken input to text.
-
-Step 3: Text Generation
-
-    The application combines the image description and the spoken input.
-    It generates a contextual response using GPT-3.5.
+    On the main page, upload an image.
+    Provide voice input when prompted.
+    View the AI-generated response combining the image description and your spoken input.
 
 Example Output
 
-Image Description: "A peaceful lake surrounded by mountains."
-Spoken Input: "What makes this scene so special?"
-AI Response: "This serene scene captures the tranquility of nature, with the calm lake reflecting the grandeur of the mountains."
-Modules
-1. image_description.py
-
-Contains the generate_image_description() function to describe the content of an image using the BLIP model.
-Dependencies: Hugging Face Transformers, PIL (Pillow).
-2. speech_recognition.py
-
-Contains the speech_to_text() function to capture and transcribe spoken input.
-Dependencies: SpeechRecognition.
-3. main.py
-
-Integrates the image description and speech recognition functions and generates responses using GPT-3.5.
-Dependencies: Transformers, Local Modules (image_description.py, speech_recognition.py).
-Future Improvements
-
-    Web Interface: Add a user-friendly UI using Streamlit or Flask.
-    Noise Filtering: Improve speech recognition accuracy in noisy environments.
-    Multi-Image Support: Extend capabilities to process multiple images simultaneously.
-
+Image Description: "A sunset over a mountain range."
+Spoken Input: "Tell me something interesting about this scene."
+AI Response: "This serene scene represents the beauty of nature, with the sun setting over rugged mountains."
 References
 
     Expanding Beyond Text: A Practical Guide to Building Multi-Modal LLM Solutions
-    Explore the concepts and practical details of this project in my detailed blog post.
     Hugging Face Transformers Documentation
     BLIP Model on Hugging Face
     Google Speech Recognition Documentation
@@ -111,9 +75,8 @@ This project is licensed under the MIT License.
 
 ---
 
-### Key Features of the Updated README:
-- **Detailed Overview**: Explains the project’s purpose and functionality.
-- **File Structure**: Clearly lists and explains the files in the project.
-- **Usage Instructions**: Provides step-by-step guidance on running the application.
-- **Example Output**: Demonstrates what users can expect from the application.
-- **References**: Links to your blog post and relevant documentation for further reading.
+### **How It All Fits Together**
+- The `app.py` file creates a simple Flask web server.
+- Templates in the `templates/` folder provide the frontend for uploading images and displaying results.
+- `image_description.py` and `speech_recognition.py` handle the core multi-modal processing logic.
+- The `README.md` explains the setup and usage of the project.
