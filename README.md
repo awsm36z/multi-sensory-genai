@@ -37,6 +37,20 @@ Follow my blogs at [Medium LLM-related blogs](https://bit.ly/yassine-blogs]
   ```bash
   pip install transformers pillow speechrecognition flask
 
+  Install PyTorch: PyTorch is required for using BLIP to generate image descriptions. Visit the PyTorch Installation Page and choose the appropriate command based on your system configuration. Below are common options:
+
+    For CPU-only:
+
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+For GPU (CUDA 11.8):
+
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+Verify PyTorch installation:
+
+python -c "import torch; print(torch.__version__)
+
 How to Run
 
     Clone the repository:

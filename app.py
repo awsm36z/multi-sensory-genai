@@ -2,22 +2,39 @@
 File: app.py
 Author: Yassine El Yacoubi
 Description: Flask web application to integrate image description and speech recognition with LLM response generation.
-Dependencies: Flask, Transformers, Local Modules (image_description, speech_recognition)
-
-Routes:
-    - /: Renders the main form.
-    - /process: Processes the uploaded image and voice input, and displays the AI-generated response.
+Dependencies: Flask, OpenAI, Local Modules (image_description, speech_recognition)
 """
 
 from flask import Flask, request, render_template
-from transformers import pipeline
 from image_description import generate_image_description
-from speech_recognition import speech_to_text
+from speech_to_text import speech_to_text
+import openai
+from utils import load_my_api_key
 
+# Set up Flask app
 app = Flask(__name__)
 
-# Load the text generation pipeline
-text_generator = pipeline("text-generation", model="gpt-3.5-turbo")
+# Set your OpenAI API key
+openai.api_key = load_my_api_key()
+
+def generate_response(prompt):
+    """
+    Generates a response using OpenAI's GPT-3.5-turbo model.
+
+    Args:
+        prompt (str): The input prompt for the model.
+
+    Returns:
+        str: The generated response.
+    """
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": prompt}
+        ]
+    )
+    return response['choices'][0]['message']['content']
 
 @app.route("/")
 def index():
@@ -47,13 +64,13 @@ def process():
 
     # Generate AI response
     prompt = f"The image shows: {image_description}. The user said: {spoken_input}. Provide a response:"
-    response = text_generator(prompt, max_length=100, num_return_sequences=1)
+    ai_response = generate_response(prompt)
 
     return render_template(
         "result.html",
         image_description=image_description,
         spoken_input=spoken_input,
-        ai_response=response[0]["generated_text"]
+        ai_response=ai_response
     )
 
 if __name__ == "__main__":
