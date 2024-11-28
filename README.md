@@ -25,7 +25,7 @@ Follow my blogs at [Medium LLM-related blogs](https://bit.ly/yassine-blogs]
 ## File Structure
 
 ├── image_description.py # Function for generating image descriptions using BLIP. 
-├── speech_recognition.py # Function for capturing and transcribing voice input. 
+├── speech_to_text.py # Function for capturing and transcribing voice input. 
 ├── main.py # Main script that integrates all functionalities. 
 └── README.md # Documentation for the project.
 
